@@ -1,5 +1,5 @@
 ---
-import MainLayout from '../components/layouts/MainLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 
 // Server only
 const name = 'Marlon';
@@ -11,20 +11,8 @@ const name = 'Marlon';
   <p>Hora actual: <b>{new Date().toLocaleTimeString()}</b></p>
   <p id="time">Hora actual real: <b>{new Date().toLocaleTimeString()}</b></p>
 
-  <footer><b>2023</b></footer>
-
   <script>
     // Client only
-    // Mostrar año en el footer
-    const currentYear: number = new Date().getFullYear();
-    const footer = document.querySelector('footer') as HTMLElement;
-    footer.innerText = `Año: ${currentYear}`;
-
-    // Mostrar tiempo real
-    // const currentTime: string = new Date().toLocaleTimeString();
-    // const time = document.querySelector('#time') as HTMLParagraphElement;
-    // time.innerText = `Hora actual real: ${currentTime}`
-
     // --- Inicio de la mejora para el reloj ---
     const timeElement = document.querySelector('#time') as HTMLParagraphElement;
 
