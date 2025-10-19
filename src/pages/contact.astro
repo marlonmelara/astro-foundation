@@ -1,17 +1,7 @@
 ---
-import Navbar from '../components/Navbar.astro';
+import MainLayout from '../components/layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Navbar />
-    <h1>Contact Astro</h1>
-  </body>
-</html>
+<MainLayout title="Contact Astro">
+  <h1>Contact Astro</h1>
+</MainLayout>

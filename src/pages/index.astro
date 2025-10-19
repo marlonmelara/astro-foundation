@@ -1,57 +1,45 @@
 ---
-import Navbar from '../components/Navbar.astro';
+import MainLayout from '../components/layouts/MainLayout.astro';
 
 // Server only
 const name = 'Marlon';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <Navbar />
-    <h1>¡Hola, Astro!</h1>
-    <p>Hola {name}</p>
-    <p>Hora actual: <b>{new Date().toLocaleTimeString()}</b></p>
-    <p id="time">Hora actual real: <b>{new Date().toLocaleTimeString()}</b></p>
+<MainLayout title="Home Page">
+  <h1>¡Hola, Astro!</h1>
+  <p>Hola {name}</p>
+  <p>Hora actual: <b>{new Date().toLocaleTimeString()}</b></p>
+  <p id="time">Hora actual real: <b>{new Date().toLocaleTimeString()}</b></p>
 
-    <footer><b>2023</b></footer>
+  <footer><b>2023</b></footer>
 
-    <script>
-      // Client only
-      // Mostrar año en el footer
-      const currentYear: number = new Date().getFullYear();
-      const footer = document.querySelector('footer') as HTMLElement;
-      footer.innerText = `Año: ${currentYear}`;
+  <script>
+    // Client only
+    // Mostrar año en el footer
+    const currentYear: number = new Date().getFullYear();
+    const footer = document.querySelector('footer') as HTMLElement;
+    footer.innerText = `Año: ${currentYear}`;
 
-      // Mostrar tiempo real
-      // const currentTime: string = new Date().toLocaleTimeString();
-      // const time = document.querySelector('#time') as HTMLParagraphElement;
-      // time.innerText = `Hora actual real: ${currentTime}`
+    // Mostrar tiempo real
+    // const currentTime: string = new Date().toLocaleTimeString();
+    // const time = document.querySelector('#time') as HTMLParagraphElement;
+    // time.innerText = `Hora actual real: ${currentTime}`
 
-      // --- Inicio de la mejora para el reloj ---
-      const timeElement = document.querySelector(
-        '#time'
-      ) as HTMLParagraphElement;
+    // --- Inicio de la mejora para el reloj ---
+    const timeElement = document.querySelector('#time') as HTMLParagraphElement;
 
-      // 1. Creamos una función dedicada a actualizar la hora
-      function updateClock() {
-        const currentTime: string = new Date().toLocaleTimeString();
-        // Usamos innerHTML para poder mantener la etiqueta <b>
-        timeElement.innerHTML = `Hora actual real: <b>${currentTime}</b>`;
-      }
+    // 1. Creamos una función dedicada a actualizar la hora
+    function updateClock() {
+      const currentTime: string = new Date().toLocaleTimeString();
+      // Usamos innerHTML para poder mantener la etiqueta <b>
+      timeElement.innerHTML = `Hora actual real: <b>${currentTime}</b>`;
+    }
 
-      // 2. La ejecutamos una vez al cargar la página
-      updateClock();
+    // 2. La ejecutamos una vez al cargar la página
+    updateClock();
 
-      // 3. Le decimos al navegador que la ejecute cada segundo (1000 ms)
-      setInterval(updateClock, 1000);
-      // --- Fin de la mejora ---
-    </script>
-  </body>
-</html>
+    // 3. Le decimos al navegador que la ejecute cada segundo (1000 ms)
+    setInterval(updateClock, 1000);
+    // --- Fin de la mejora ---
+  </script>
+</MainLayout>
