@@ -1,0 +1,134 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Page Not Found" isErrorPage={true}>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Variables CSS */
+      :root {
+        --color-text: #888;
+        --color-primary: #5a67d8;
+        --color-primary-hover: #4c51bf;
+        --color-bg: #ffffff;
+        --transition-speed: 0.3s;
+      }
+
+      /* Reset y base */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        min-height: 100%;
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+      }
+
+      /* Layout principal */
+      #main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .fof {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      /* Tipografía */
+      .fof h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        display: inline-block;
+        padding-right: 0.75rem;
+        animation: type 0.8s steps(1) infinite;
+      }
+
+      .fof p {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      /* Animación del cursor */
+      @keyframes type {
+        0%,
+        100% {
+          box-shadow: inset -3px 0 0 var(--color-text);
+        }
+        50% {
+          box-shadow: inset -3px 0 0 transparent;
+        }
+      }
+
+      /* Botón */
+      .btn-home {
+        display: inline-block;
+        padding: 0.875rem 2rem;
+        background-color: var(--color-primary);
+        color: white;
+        text-decoration: none;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all var(--transition-speed) ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-home:hover,
+      .btn-home:focus-visible {
+        background-color: var(--color-primary-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn-home:focus-visible {
+        outline: 3px solid var(--color-primary);
+        outline-offset: 3px;
+      }
+
+      .btn-home:active {
+        transform: translateY(0);
+      }
+
+      /* Media queries */
+      @media (max-width: 768px) {
+        #main {
+          padding: 1rem;
+        }
+
+        .btn-home {
+          padding: 0.75rem 1.5rem;
+          font-size: 0.9375rem;
+        }
+      }
+    </style>
+  </head>
+
+  <div id="main">
+    <div class="fof">
+      <h1>Error 404</h1>
+      <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
+      <a href="/" class="btn-home">Volver al inicio</a>
+    </div>
+  </div>
+</MainLayout>

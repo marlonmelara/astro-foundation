@@ -1,9 +1,25 @@
 ---
-
+const { isErrorPage = false } = Astro.props;
 ---
 
-<nav>
+<nav class:list={[{ 'error-page-nav': isErrorPage }]}>
   <a href="/">Home Page</a>
   <a href="/about">About Page</a>
   <a href="/contact">Contact Page</a>
 </nav>
+
+<style>
+  /* Tus estilos por defecto */
+  nav a {
+    color: #223;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+
+  /* 🎨 El estilo especial solo para la página 404 */
+  /* Se aplicará solo cuando <nav> tenga la clase .error-page-nav */
+  nav.error-page-nav a {
+    color: #ff6b6b; /* Un color rojo para el error, por ejemplo */
+    font-weight: bold;
+  }
+</style>
