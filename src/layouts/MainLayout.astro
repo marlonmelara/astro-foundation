@@ -22,6 +22,8 @@ const { title, isErrorPage = false } = Astro.props;
   </head>
   <body>
     <Navbar isErrorPage={isErrorPage} />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
