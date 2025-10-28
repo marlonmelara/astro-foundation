@@ -1,8 +1,8 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 
 // Server only
-const name = 'Marlon';
+const name = "Marlon";
 ---
 
 <MainLayout title="Home Page">
@@ -14,7 +14,7 @@ const name = 'Marlon';
   <script>
     // Client only
     // --- Inicio de la mejora para el reloj ---
-    const timeElement = document.querySelector('#time') as HTMLParagraphElement;
+    const timeElement = document.querySelector("#time") as HTMLParagraphElement;
 
     // 1. Creamos una función dedicada a actualizar la hora
     function updateClock() {
